@@ -3,13 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Baby Asteroid — The Cutest Explosion on Ethereum</title>
-<meta name="description" content="Baby Asteroid — the ultra-cute baby version of the exploding Asteroid token. Launching on Printr (Ethereum) with 2% automated Buyback & Burn every 15 minutes." />
+<title>Baby Asteroid — The Cutest Explosion on Base</title>
+<meta name="description" content="Baby Asteroid — the cute baby of the Asteroid token. Launching on Flaunch (Base) with a Progressive Bid Wall for automated, continuous buy-side price support." />
 
-<!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- Fonts: playful display + refined body -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Space+Mono:wght@400;700&family=Syne:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -26,6 +24,7 @@
           'astro-pink': '#ec4899',
           'astro-purple': '#a855f7',
           'astro-yellow': '#fde047',
+          'base-blue': '#0052ff',
         },
         fontFamily: {
           bungee: ['Bungee', 'cursive'],
@@ -45,18 +44,16 @@
     background: #05060f;
     color: #e2e8f0;
     overflow-x: hidden;
-    cursor: default;
   }
 
-  /* ===== COSMIC BACKGROUND ===== */
   .cosmic-bg {
     position: fixed;
     inset: 0;
     z-index: -2;
     background:
-      radial-gradient(ellipse at 20% 10%, rgba(168, 85, 247, 0.25), transparent 50%),
+      radial-gradient(ellipse at 20% 10%, rgba(0, 82, 255, 0.25), transparent 50%),
       radial-gradient(ellipse at 80% 30%, rgba(59, 130, 246, 0.22), transparent 50%),
-      radial-gradient(ellipse at 50% 80%, rgba(236, 72, 153, 0.18), transparent 50%),
+      radial-gradient(ellipse at 50% 80%, rgba(168, 85, 247, 0.18), transparent 50%),
       radial-gradient(ellipse at 10% 90%, rgba(34, 211, 238, 0.15), transparent 50%),
       #05060f;
   }
@@ -87,36 +84,27 @@
     to { background-position: 400px 200px; }
   }
 
-  /* Grid overlay */
   .grid-overlay {
     position: fixed;
     inset: 0;
     z-index: -1;
     pointer-events: none;
     background-image:
-      linear-gradient(rgba(34, 211, 238, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(34, 211, 238, 0.04) 1px, transparent 1px);
+      linear-gradient(rgba(0, 82, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 82, 255, 0.05) 1px, transparent 1px);
     background-size: 80px 80px;
     mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
   }
 
-  /* ===== NEON TEXT ===== */
   .neon-text {
     text-shadow:
-      0 0 10px rgba(34, 211, 238, 0.8),
-      0 0 20px rgba(34, 211, 238, 0.6),
+      0 0 10px rgba(0, 82, 255, 0.8),
+      0 0 20px rgba(0, 82, 255, 0.6),
       0 0 40px rgba(59, 130, 246, 0.4);
   }
-  .neon-pink {
-    text-shadow:
-      0 0 10px rgba(236, 72, 153, 0.8),
-      0 0 20px rgba(236, 72, 153, 0.6),
-      0 0 40px rgba(168, 85, 247, 0.4);
-  }
 
-  /* Gradient text */
   .grad-text {
-    background: linear-gradient(135deg, #22d3ee 0%, #a855f7 50%, #ec4899 100%);
+    background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 50%, #0052ff 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -128,30 +116,24 @@
     -webkit-text-fill-color: transparent;
   }
 
-  /* ===== NEON BORDERS ===== */
   .neon-border {
     position: relative;
     background: rgba(10, 11, 30, 0.6);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(34, 211, 238, 0.3);
-    box-shadow:
-      0 0 30px rgba(34, 211, 238, 0.15),
-      inset 0 0 20px rgba(168, 85, 247, 0.05);
+    border: 1px solid rgba(0, 82, 255, 0.35);
+    box-shadow: 0 0 30px rgba(0, 82, 255, 0.15), inset 0 0 20px rgba(59, 130, 246, 0.05);
     transition: all 0.4s ease;
   }
   .neon-border:hover {
-    border-color: rgba(236, 72, 153, 0.6);
-    box-shadow:
-      0 0 40px rgba(236, 72, 153, 0.3),
-      inset 0 0 30px rgba(168, 85, 247, 0.1);
+    border-color: rgba(34, 211, 238, 0.7);
+    box-shadow: 0 0 40px rgba(34, 211, 238, 0.3), inset 0 0 30px rgba(59, 130, 246, 0.1);
     transform: translateY(-4px);
   }
 
-  /* ===== HERO GLOW ORB BEHIND CHARACTER ===== */
   .hero-glow {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at center, rgba(34, 211, 238, 0.4), rgba(168, 85, 247, 0.3) 40%, transparent 70%);
+    background: radial-gradient(circle at center, rgba(0, 82, 255, 0.5), rgba(168, 85, 247, 0.3) 40%, transparent 70%);
     filter: blur(40px);
     animation: pulseGlow 4s ease-in-out infinite;
   }
@@ -160,7 +142,6 @@
     50% { opacity: 1; transform: scale(1.1); }
   }
 
-  /* ===== FLOAT ANIMATION ===== */
   @keyframes float {
     0%, 100% { transform: translateY(0) rotate(0deg); }
     50% { transform: translateY(-20px) rotate(2deg); }
@@ -169,7 +150,6 @@
   .float-slow { animation: float 8s ease-in-out infinite; }
   .float-fast { animation: float 4s ease-in-out infinite; }
 
-  /* ===== BUTTONS ===== */
   .btn-neon {
     position: relative;
     display: inline-flex;
@@ -180,36 +160,25 @@
     font-size: 1rem;
     letter-spacing: 0.05em;
     color: #05060f;
-    background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%);
+    background: linear-gradient(135deg, #22d3ee 0%, #0052ff 100%);
     border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 999px;
     transition: all 0.3s ease;
-    box-shadow:
-      0 0 20px rgba(34, 211, 238, 0.5),
-      0 0 40px rgba(34, 211, 238, 0.3),
-      inset 0 0 20px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(0, 82, 255, 0.5), 0 0 40px rgba(0, 82, 255, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.2);
     text-transform: uppercase;
     cursor: pointer;
   }
   .btn-neon:hover {
     transform: translateY(-3px) scale(1.03);
-    box-shadow:
-      0 0 30px rgba(34, 211, 238, 0.8),
-      0 0 60px rgba(34, 211, 238, 0.5),
-      inset 0 0 30px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 30px rgba(0, 82, 255, 0.8), 0 0 60px rgba(0, 82, 255, 0.5), inset 0 0 30px rgba(255, 255, 255, 0.3);
   }
   .btn-pink {
     background: linear-gradient(135deg, #ec4899 0%, #a855f7 100%);
-    box-shadow:
-      0 0 20px rgba(236, 72, 153, 0.5),
-      0 0 40px rgba(236, 72, 153, 0.3),
-      inset 0 0 20px rgba(255, 255, 255, 0.2);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(236, 72, 153, 0.5), 0 0 40px rgba(236, 72, 153, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.2);
   }
   .btn-pink:hover {
-    box-shadow:
-      0 0 30px rgba(236, 72, 153, 0.8),
-      0 0 60px rgba(236, 72, 153, 0.5),
-      inset 0 0 30px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 30px rgba(236, 72, 153, 0.8), 0 0 60px rgba(236, 72, 153, 0.5), inset 0 0 30px rgba(255, 255, 255, 0.3);
   }
   .btn-ghost {
     background: transparent;
@@ -222,7 +191,6 @@
     color: #fff;
   }
 
-  /* ===== MARQUEE ===== */
   .marquee {
     display: flex;
     overflow: hidden;
@@ -232,7 +200,7 @@
   .marquee-track {
     display: flex;
     gap: 2rem;
-    animation: marquee 30s linear infinite;
+    animation: marquee 40s linear infinite;
     flex-shrink: 0;
   }
   @keyframes marquee {
@@ -240,7 +208,6 @@
     to { transform: translateX(-100%); }
   }
 
-  /* ===== TILT / MEME CARDS ===== */
   .meme-card {
     position: relative;
     overflow: hidden;
@@ -249,14 +216,10 @@
     border: 2px solid rgba(255,255,255,0.08);
     background: rgba(10, 11, 30, 0.6);
   }
-  .meme-card img {
-    transition: transform 0.7s cubic-bezier(.2,.8,.2,1);
-  }
+  .meme-card img { transition: transform 0.7s cubic-bezier(.2,.8,.2,1); }
   .meme-card:hover {
-    border-color: rgba(236, 72, 153, 0.8);
-    box-shadow:
-      0 20px 60px rgba(236, 72, 153, 0.3),
-      0 0 40px rgba(168, 85, 247, 0.2);
+    border-color: rgba(0, 82, 255, 0.8);
+    box-shadow: 0 20px 60px rgba(0, 82, 255, 0.3), 0 0 40px rgba(59, 130, 246, 0.2);
     transform: translateY(-8px) rotate(-1deg);
   }
   .meme-card:hover img { transform: scale(1.08); }
@@ -269,9 +232,7 @@
   }
   .meme-card .caption {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    bottom: 0; left: 0; right: 0;
     padding: 1rem 1.25rem;
     z-index: 2;
     font-family: 'Bungee', cursive;
@@ -282,8 +243,7 @@
   }
   .meme-card .tag {
     position: absolute;
-    top: 0.75rem;
-    left: 0.75rem;
+    top: 0.75rem; left: 0.75rem;
     z-index: 2;
     padding: 0.25rem 0.75rem;
     background: rgba(5, 6, 15, 0.8);
@@ -296,33 +256,24 @@
     letter-spacing: 0.1em;
   }
 
-  /* ===== BADGE ===== */
   .badge {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
-    background: rgba(34, 211, 238, 0.08);
-    border: 1px solid rgba(34, 211, 238, 0.35);
+    background: rgba(0, 82, 255, 0.1);
+    border: 1px solid rgba(0, 82, 255, 0.4);
     border-radius: 999px;
     font-family: 'Space Mono', monospace;
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: #22d3ee;
+    color: #60a5fa;
   }
-  .badge-pink {
-    background: rgba(236, 72, 153, 0.08);
-    border-color: rgba(236, 72, 153, 0.35);
-    color: #ec4899;
-  }
-  .badge-yellow {
-    background: rgba(253, 224, 71, 0.08);
-    border-color: rgba(253, 224, 71, 0.35);
-    color: #fde047;
-  }
+  .badge-pink { background: rgba(236, 72, 153, 0.08); border-color: rgba(236, 72, 153, 0.35); color: #ec4899; }
+  .badge-yellow { background: rgba(253, 224, 71, 0.08); border-color: rgba(253, 224, 71, 0.35); color: #fde047; }
+  .badge-cyan { background: rgba(34, 211, 238, 0.08); border-color: rgba(34, 211, 238, 0.35); color: #22d3ee; }
 
-  /* ===== SECTION TITLE ===== */
   .section-title {
     font-family: 'Bungee', cursive;
     font-size: clamp(2.5rem, 6vw, 5rem);
@@ -331,10 +282,8 @@
     text-transform: uppercase;
   }
 
-  /* ===== PULSE DOT ===== */
   .pulse-dot {
-    width: 10px;
-    height: 10px;
+    width: 10px; height: 10px;
     background: #22c55e;
     border-radius: 50%;
     box-shadow: 0 0 10px #22c55e;
@@ -345,7 +294,6 @@
     50% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
   }
 
-  /* ===== ROADMAP STEPS ===== */
   .road-step {
     position: relative;
     padding: 2rem;
@@ -362,7 +310,7 @@
     inset: 0;
     border-radius: 1.5rem;
     padding: 2px;
-    background: linear-gradient(135deg, #22d3ee, #a855f7, #ec4899);
+    background: linear-gradient(135deg, #22d3ee, #0052ff, #a855f7);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
@@ -370,97 +318,51 @@
     transition: opacity 0.3s;
   }
   .road-step:hover::before { opacity: 1; }
-  .road-step:hover {
-    transform: translateY(-6px);
-  }
+  .road-step:hover { transform: translateY(-6px); }
   .road-step-number {
     font-family: 'Bungee', cursive;
     font-size: 3rem;
-    background: linear-gradient(135deg, #22d3ee 0%, #ec4899 100%);
+    background: linear-gradient(135deg, #22d3ee 0%, #0052ff 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     line-height: 1;
   }
 
-  /* ===== TOKENOMICS BOX ===== */
   .tok-box {
     position: relative;
     padding: 2rem;
     border-radius: 1.5rem;
     background: rgba(10, 11, 30, 0.7);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(168, 85, 247, 0.3);
+    border: 1px solid rgba(0, 82, 255, 0.3);
     transition: all 0.4s;
   }
-  .tok-box:hover {
-    border-color: rgba(236, 72, 153, 0.7);
-    transform: translateY(-4px);
-  }
+  .tok-box:hover { border-color: rgba(34, 211, 238, 0.7); transform: translateY(-4px); }
 
-  /* ===== BURN FLAME ===== */
   @keyframes flicker {
     0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.8; transform: scale(1.05); }
+    50% { opacity: 0.85; transform: scale(1.04); }
   }
-  .flicker { animation: flicker 1.2s ease-in-out infinite; }
+  .flicker { animation: flicker 1.4s ease-in-out infinite; }
 
-  /* ===== SCROLL REVEAL ===== */
   .reveal {
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s cubic-bezier(.2,.8,.2,1);
   }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* ===== ROTATE FOREVER ===== */
-  @keyframes spinSlow {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
+  @keyframes spinSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
   .spin-slow { animation: spinSlow 20s linear infinite; }
 
-  /* ===== SHOOTING STAR ===== */
-  .shooting {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: white;
-    border-radius: 50%;
-    box-shadow: 0 0 8px white;
-  }
-  .shooting::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100px;
-    height: 1px;
-    background: linear-gradient(90deg, white, transparent);
-    transform: translateX(-100px);
-  }
-  @keyframes shoot {
-    0% { transform: translate(0,0); opacity: 0; }
-    10% { opacity: 1; }
-    100% { transform: translate(-500px, 300px); opacity: 0; }
-  }
-
-  /* Mobile nav */
   .mobile-menu { display: none; }
   .mobile-menu.open { display: flex; }
 
-  /* Scrollbar */
   ::-webkit-scrollbar { width: 10px; }
   ::-webkit-scrollbar-track { background: #05060f; }
-  ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #22d3ee, #ec4899);
-    border-radius: 10px;
-  }
+  ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #22d3ee, #0052ff); border-radius: 10px; }
 
-  /* Sticker style caption boxes */
   .sticker {
     display: inline-block;
     padding: 0.35rem 0.85rem;
@@ -473,19 +375,15 @@
     box-shadow: 0 4px 20px rgba(0,0,0,0.4);
   }
 
-  /* Polaroid style frames for scattered hero images */
   .polaroid {
     position: absolute;
     padding: 8px 8px 40px 8px;
     background: #fafafa;
     border-radius: 4px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 40px rgba(34,211,238,0.25);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 40px rgba(0,82,255,0.25);
     transition: transform 0.4s ease;
   }
-  .polaroid:hover {
-    transform: scale(1.08) rotate(0deg) !important;
-    z-index: 10;
-  }
+  .polaroid:hover { transform: scale(1.08) rotate(0deg) !important; z-index: 10; }
   .polaroid img {
     display: block;
     width: 100%;
@@ -495,9 +393,7 @@
   }
   .polaroid-caption {
     position: absolute;
-    bottom: 8px;
-    left: 0;
-    right: 0;
+    bottom: 8px; left: 0; right: 0;
     text-align: center;
     font-family: 'Space Mono', monospace;
     font-size: 0.7rem;
@@ -506,6 +402,45 @@
     letter-spacing: 0.05em;
     text-transform: uppercase;
   }
+
+  .chain-card {
+    position: relative;
+    padding: 2.5rem 2rem;
+    border-radius: 1.75rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+    overflow: hidden;
+  }
+  .chain-card:hover { transform: translateY(-8px); }
+  .chain-card .chain-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    opacity: 0.75;
+  }
+  .chain-card h3 {
+    font-family: 'Bungee', cursive;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    line-height: 1;
+    margin: 0.75rem 0 1rem;
+  }
+
+  .chain-eth { background: rgba(98, 126, 234, 0.08); border: 1px solid rgba(98, 126, 234, 0.3); }
+  .chain-eth:hover { border-color: rgba(98, 126, 234, 0.7); box-shadow: 0 20px 60px rgba(98, 126, 234, 0.2); }
+
+  .chain-base {
+    background: rgba(0, 82, 255, 0.12);
+    border: 2px solid rgba(0, 82, 255, 0.6);
+    box-shadow: 0 0 40px rgba(0, 82, 255, 0.25);
+  }
+  .chain-base:hover {
+    border-color: rgba(34, 211, 238, 0.9);
+    box-shadow: 0 20px 60px rgba(0, 82, 255, 0.45), 0 0 60px rgba(34, 211, 238, 0.3);
+  }
+
+  .chain-sol { background: rgba(107, 114, 128, 0.06); border: 1px dashed rgba(156, 163, 175, 0.3); opacity: 0.85; }
+  .chain-sol:hover { opacity: 1; border-color: rgba(156, 163, 175, 0.6); }
 </style>
 </head>
 <body class="font-body antialiased">
@@ -514,25 +449,24 @@
 <div class="stars"></div>
 <div class="grid-overlay"></div>
 
-<!-- =============== NAVBAR =============== -->
+<!-- NAVBAR -->
 <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-astro-bg/70 border-b border-white/5">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-20">
-      <!-- Logo -->
       <a href="#home" class="flex items-center gap-3 group">
         <div class="relative">
-          <div class="absolute inset-0 bg-astro-cyan rounded-full blur-xl opacity-60 group-hover:opacity-100 transition"></div>
-          <img src="logo.jpg" alt="Baby Asteroid" class="relative w-12 h-12 rounded-full border-2 border-astro-cyan/60 object-cover" />
+          <div class="absolute inset-0 bg-base-blue rounded-full blur-xl opacity-60 group-hover:opacity-100 transition"></div>
+          <img src="logo.jpg" alt="Baby Asteroid" class="relative w-12 h-12 rounded-full border-2 border-base-blue/70 object-cover" />
         </div>
         <div class="leading-none">
           <div class="font-bungee text-lg text-white tracking-tight">BABY ASTEROID</div>
-          <div class="font-mono text-[10px] text-astro-cyan tracking-[0.2em]">$BABYAST</div>
+          <div class="font-mono text-[10px] tracking-[0.2em]" style="color:#60a5fa">$BABYAST &middot; BASE</div>
         </div>
       </a>
 
-      <!-- Desktop links -->
       <div class="hidden lg:flex items-center gap-8">
         <a href="#home" class="font-mono text-xs uppercase tracking-widest text-white/70 hover:text-astro-cyan transition">Home</a>
+        <a href="#thesis" class="font-mono text-xs uppercase tracking-widest text-white/70 hover:text-astro-cyan transition">Thesis</a>
         <a href="#about" class="font-mono text-xs uppercase tracking-widest text-white/70 hover:text-astro-cyan transition">About</a>
         <a href="#memes" class="font-mono text-xs uppercase tracking-widest text-white/70 hover:text-astro-cyan transition">Memes</a>
         <a href="#roadmap" class="font-mono text-xs uppercase tracking-widest text-white/70 hover:text-astro-cyan transition">Roadmap</a>
@@ -541,15 +475,14 @@
         <a href="#buy" class="btn-neon !py-2.5 !px-5 !text-xs">Buy Now</a>
       </div>
 
-      <!-- Mobile toggle -->
       <button id="menuBtn" class="lg:hidden text-white p-2" aria-label="Menu">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
     </div>
 
-    <!-- Mobile menu -->
     <div id="mobileMenu" class="mobile-menu lg:hidden flex-col gap-4 pb-6 border-t border-white/10 pt-4">
       <a href="#home" class="font-mono text-sm uppercase tracking-widest text-white/80 hover:text-astro-cyan">Home</a>
+      <a href="#thesis" class="font-mono text-sm uppercase tracking-widest text-white/80 hover:text-astro-cyan">Thesis</a>
       <a href="#about" class="font-mono text-sm uppercase tracking-widest text-white/80 hover:text-astro-cyan">About</a>
       <a href="#memes" class="font-mono text-sm uppercase tracking-widest text-white/80 hover:text-astro-cyan">Memes</a>
       <a href="#roadmap" class="font-mono text-sm uppercase tracking-widest text-white/80 hover:text-astro-cyan">Roadmap</a>
@@ -560,13 +493,12 @@
   </div>
 </nav>
 
-<!-- =============== HERO =============== -->
+<!-- HERO -->
 <section id="home" class="relative min-h-screen pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-  <!-- Floating scattered polaroids (desktop only) -->
   <div class="hidden xl:block absolute inset-0 pointer-events-none">
     <div class="polaroid float pointer-events-auto" style="top: 12%; left: 4%; width: 160px; height: 160px; transform: rotate(-8deg);">
       <img src="3.jpg" alt="">
-      <div class="polaroid-caption">To The Moon</div>
+      <div class="polaroid-caption">On Base</div>
     </div>
     <div class="polaroid float-slow pointer-events-auto" style="top: 55%; left: 2%; width: 140px; height: 140px; transform: rotate(6deg);">
       <img src="7.jpg" alt="">
@@ -578,93 +510,81 @@
     </div>
     <div class="polaroid float pointer-events-auto" style="top: 58%; right: 2%; width: 155px; height: 155px; transform: rotate(-7deg);">
       <img src="14.jpg" alt="">
-      <div class="polaroid-caption">HODL Mode</div>
+      <div class="polaroid-caption">Hold Mode</div>
     </div>
   </div>
 
   <div class="max-w-7xl mx-auto relative z-10">
     <div class="grid lg:grid-cols-2 gap-12 items-center">
 
-      <!-- LEFT -->
       <div class="space-y-8 text-center lg:text-left">
         <div class="inline-flex items-center gap-2 flex-wrap justify-center lg:justify-start">
-          <span class="badge"><span class="pulse-dot"></span> LIVE ON PRINTR</span>
-          <span class="badge badge-pink">2% AUTO BUYBACK &amp; BURN</span>
+          <span class="badge"><span class="pulse-dot"></span> Launching on Flaunch</span>
+          <span class="badge badge-cyan">Base Native</span>
         </div>
 
         <h1 class="font-bungee text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tight">
           <span class="block text-white">the cutest</span>
           <span class="block grad-text neon-text">explosion</span>
-          <span class="block text-white">on ethereum</span>
+          <span class="block text-white">on base</span>
         </h1>
 
         <p class="text-lg sm:text-xl text-white/70 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-          Meet <span class="text-astro-cyan font-bold">Baby Asteroid</span> — the ultra-cute plush pup riding the massive <span class="text-astro-pink font-bold">$ASTEROID</span> hype wave. Launching directly on <span class="text-astro-yellow font-bold">Printr</span> with automated buyback and burn every 15 minutes. No team allocation. No pre-sale. Just pure cosmic degen energy.
+          On Ethereum, the <span class="text-astro-pink font-bold">papai Asteroid</span> is already on its way to billions. On <span class="font-bold" style="color:#60a5fa">Base</span>, the baby follows his father's footsteps. On Solana, the dumpster is open and ready for whatever trash we pass along the way. Meet <span class="text-astro-cyan font-bold">Baby Asteroid</span>, the plush astronaut pup launching on <span class="text-astro-yellow font-bold">Flaunch</span>, Uniswap V4 native, powered by a Progressive Bid Wall.
         </p>
 
         <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
-          <a href="#buy" class="btn-neon">
-            Buy on Printr
-          </a>
-          <a href="https://t.me/babyasteroidx" class="btn-neon btn-pink">
-            Join Telegram
-          </a>
-          <a href="https://x.com/basteroideth" class="btn-neon btn-ghost">
-            Follow on X
-          </a>
+          <a href="#buy" class="btn-neon">Buy on Flaunch</a>
+          <a href="#community" class="btn-neon btn-pink">Join Telegram</a>
+          <a href="#community" class="btn-neon btn-ghost">Follow on X</a>
         </div>
 
-        <!-- Mini stats -->
         <div class="grid grid-cols-3 gap-3 sm:gap-4 pt-4 max-w-md mx-auto lg:mx-0">
           <div class="neon-border rounded-2xl p-3 sm:p-4 text-center">
-            <div class="font-bungee text-xl sm:text-2xl grad-text">2%</div>
-            <div class="font-mono text-[10px] sm:text-xs text-white/60 uppercase tracking-wider mt-1">Buyback&nbsp;&amp;&nbsp;Burn</div>
+            <div class="font-bungee text-xl sm:text-2xl grad-text">PBW</div>
+            <div class="font-mono text-[10px] sm:text-xs text-white/60 uppercase tracking-wider mt-1">Auto Buyback</div>
           </div>
           <div class="neon-border rounded-2xl p-3 sm:p-4 text-center">
-            <div class="font-bungee text-xl sm:text-2xl grad-text">15m</div>
-            <div class="font-mono text-[10px] sm:text-xs text-white/60 uppercase tracking-wider mt-1">Burn Cycle</div>
+            <div class="font-bungee text-xl sm:text-2xl grad-text">30m</div>
+            <div class="font-mono text-[10px] sm:text-xs text-white/60 uppercase tracking-wider mt-1">Fair Launch</div>
           </div>
           <div class="neon-border rounded-2xl p-3 sm:p-4 text-center">
-            <div class="font-bungee text-xl sm:text-2xl grad-text-warm">∞</div>
-            <div class="font-mono text-[10px] sm:text-xs text-white/60 uppercase tracking-wider mt-1">Cuteness</div>
+            <div class="font-bungee text-xl sm:text-2xl grad-text-warm">V4</div>
+            <div class="font-mono text-[10px] sm:text-xs text-white/60 uppercase tracking-wider mt-1">Uniswap Hook</div>
           </div>
         </div>
       </div>
 
-      <!-- RIGHT: Hero character -->
       <div class="relative aspect-square max-w-lg mx-auto w-full">
         <div class="hero-glow"></div>
-        <!-- Rotating cosmic ring -->
         <div class="absolute inset-0 spin-slow pointer-events-none">
           <svg viewBox="0 0 400 400" class="w-full h-full opacity-40">
             <defs>
               <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
                 <stop offset="0%" stop-color="#22d3ee"/>
-                <stop offset="50%" stop-color="#a855f7"/>
-                <stop offset="100%" stop-color="#ec4899"/>
+                <stop offset="50%" stop-color="#0052ff"/>
+                <stop offset="100%" stop-color="#a855f7"/>
               </linearGradient>
             </defs>
             <circle cx="200" cy="200" r="180" fill="none" stroke="url(#ringGrad)" stroke-width="1" stroke-dasharray="4 8"/>
             <circle cx="200" cy="200" r="160" fill="none" stroke="url(#ringGrad)" stroke-width="1" stroke-dasharray="2 12"/>
           </svg>
         </div>
-        <!-- Orbit labels -->
         <div class="absolute inset-0 spin-slow pointer-events-none" style="animation-duration:30s">
-          <span class="absolute top-0 left-1/2 -translate-x-1/2 font-mono text-[10px] text-astro-cyan tracking-[0.3em] uppercase">Printr Launch</span>
-          <span class="absolute bottom-0 left-1/2 -translate-x-1/2 font-mono text-[10px] text-astro-pink tracking-[0.3em] uppercase">Auto Burn</span>
+          <span class="absolute top-0 left-1/2 -translate-x-1/2 font-mono text-[10px] text-astro-cyan tracking-[0.3em] uppercase">Flaunch Launch</span>
+          <span class="absolute bottom-0 left-1/2 -translate-x-1/2 font-mono text-[10px] tracking-[0.3em] uppercase" style="color:#60a5fa">Progressive Bid Wall</span>
         </div>
 
-        <img src="logo.jpg" alt="Baby Asteroid plush astronaut Shiba" class="relative z-10 w-full h-full object-cover rounded-full border-4 border-white/10 shadow-[0_0_80px_rgba(34,211,238,0.5)] float"/>
+        <img src="1.jpg" alt="Baby Asteroid plush astronaut Shiba" class="relative z-10 w-full h-full object-cover rounded-full border-4 border-white/10 shadow-[0_0_80px_rgba(0,82,255,0.6)] float"/>
 
-        <!-- Floating stickers -->
         <div class="absolute -top-2 -right-2 sm:top-4 sm:-right-6 sticker bg-astro-yellow text-astro-bg" style="transform: rotate(12deg);">
-          Burning Now
+          Fair Launch Live
         </div>
         <div class="absolute bottom-8 -left-4 sm:-left-8 sticker bg-astro-pink text-white" style="transform: rotate(-8deg);">
           Too Cute To Dump
         </div>
-        <div class="absolute top-1/2 -right-4 sm:-right-8 sticker bg-astro-cyan text-astro-bg" style="transform: rotate(4deg);">
-          Printr Native
+        <div class="absolute top-1/2 -right-4 sm:-right-8 sticker text-white" style="transform: rotate(4deg); background:#0052ff;">
+          Base Native
         </div>
       </div>
 
@@ -672,40 +592,118 @@
   </div>
 </section>
 
-<!-- =============== TICKER MARQUEE =============== -->
+<!-- MARQUEE -->
 <section class="relative py-6 border-y border-white/10 bg-astro-deep/60 backdrop-blur-sm overflow-hidden">
   <div class="marquee">
     <div class="marquee-track font-bungee text-2xl sm:text-3xl uppercase tracking-wider whitespace-nowrap">
       <span class="grad-text">Baby Asteroid</span>
-      <span class="text-white/40">◆</span>
-      <span class="text-astro-cyan">2% Auto Buyback &amp; Burn</span>
-      <span class="text-white/40">◆</span>
-      <span class="grad-text-warm">Live on Printr</span>
-      <span class="text-white/40">◆</span>
-      <span class="text-astro-pink">Every 15 Minutes</span>
-      <span class="text-white/40">◆</span>
-      <span class="text-astro-yellow">Ethereum Native</span>
-      <span class="text-white/40">◆</span>
+      <span class="text-white/40">&#9670;</span>
+      <span class="text-astro-cyan">Live on Flaunch</span>
+      <span class="text-white/40">&#9670;</span>
+      <span style="color:#60a5fa">Built on Base</span>
+      <span class="text-white/40">&#9670;</span>
+      <span class="grad-text-warm">Progressive Bid Wall</span>
+      <span class="text-white/40">&#9670;</span>
+      <span class="text-astro-pink">30 Minute Fair Launch</span>
+      <span class="text-white/40">&#9670;</span>
+      <span class="text-astro-yellow">Uniswap V4</span>
+      <span class="text-white/40">&#9670;</span>
       <span class="grad-text">Baby Asteroid</span>
-      <span class="text-white/40">◆</span>
-      <span class="text-astro-cyan">2% Auto Buyback &amp; Burn</span>
-      <span class="text-white/40">◆</span>
-      <span class="grad-text-warm">Live on Printr</span>
-      <span class="text-white/40">◆</span>
-      <span class="text-astro-pink">Every 15 Minutes</span>
-      <span class="text-white/40">◆</span>
-      <span class="text-astro-yellow">Ethereum Native</span>
-      <span class="text-white/40">◆</span>
+      <span class="text-white/40">&#9670;</span>
+      <span class="text-astro-cyan">Live on Flaunch</span>
+      <span class="text-white/40">&#9670;</span>
+      <span style="color:#60a5fa">Built on Base</span>
+      <span class="text-white/40">&#9670;</span>
+      <span class="grad-text-warm">Progressive Bid Wall</span>
+      <span class="text-white/40">&#9670;</span>
+      <span class="text-astro-pink">30 Minute Fair Launch</span>
+      <span class="text-white/40">&#9670;</span>
+      <span class="text-astro-yellow">Uniswap V4</span>
+      <span class="text-white/40">&#9670;</span>
     </div>
   </div>
 </section>
 
-<!-- =============== ABOUT =============== -->
+<!-- THESIS -->
+<section id="thesis" class="relative py-24 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <div class="badge mx-auto">The Three Chain Thesis</div>
+      <h2 class="section-title mt-6">
+        <span class="text-white">one family.</span><br/>
+        <span class="grad-text">three chains.</span>
+      </h2>
+      <p class="text-white/60 max-w-3xl mx-auto mt-6 text-lg leading-relaxed">
+        The Asteroid narrative is not a single token on a single chain. It is a map of where real money lives, where the next wave is forming, and where the garbage gets thrown out. Read carefully.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-6 items-stretch">
+
+      <div class="chain-card chain-eth reveal flex flex-col">
+        <div class="flex items-center gap-3">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><path d="M16 3L8 16.5L16 21L24 16.5L16 3Z" fill="#627eea"/><path d="M16 22.5L8 18L16 29L24 18L16 22.5Z" fill="#627eea" opacity="0.7"/></svg>
+          <span class="chain-label" style="color:#93a6ef">Ethereum</span>
+        </div>
+        <h3 class="text-white">The Father</h3>
+        <div class="font-mono text-xs tracking-widest uppercase mb-4" style="color:#93a6ef">$ASTEROID &middot; heading for billions</div>
+        <p class="text-white/75 leading-relaxed flex-grow">
+          The papai Asteroid is already a runaway. The origin, the thesis, the proof. It sits on Ethereum where the deepest pockets live and where narratives compound into market caps that do not round-trip. It is on its way to ten figures. We are not here to fight it. We are here to ride its wake.
+        </p>
+        <div class="mt-6 pt-6 border-t border-white/10">
+          <div class="font-mono text-[10px] text-white/50 uppercase tracking-widest mb-2">Role</div>
+          <div class="text-white/90 font-semibold">The narrative engine. The headline.</div>
+        </div>
+      </div>
+
+      <div class="chain-card chain-base reveal flex flex-col relative">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[10px] font-bungee tracking-widest uppercase" style="background:#0052ff;color:#fff">This is us</div>
+        <div class="flex items-center gap-3">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" fill="#0052ff"/><path d="M16 5C9.925 5 5 9.925 5 16C5 22.075 9.925 27 16 27H27V16C27 9.925 22.075 5 16 5Z" fill="#fff"/></svg>
+          <span class="chain-label" style="color:#60a5fa">Base</span>
+        </div>
+        <h3 class="text-white">The Son</h3>
+        <div class="font-mono text-xs tracking-widest uppercase mb-4" style="color:#60a5fa">$BABYAST &middot; following the footsteps</div>
+        <p class="text-white/80 leading-relaxed flex-grow">
+          On Base we have the baby. Same DNA, same spacesuit, a fraction of the price of admission. Launching on Flaunch with a Progressive Bid Wall that auto-defends the price from day one. Base is where the new capital is flowing, where fees are human, and where the next wave of meme culture is being written. The son is here. The son is ready.
+        </p>
+        <div class="mt-6 pt-6 border-t border-white/10">
+          <div class="font-mono text-[10px] text-white/50 uppercase tracking-widest mb-2">Role</div>
+          <div class="text-white/90 font-semibold">The high-beta vehicle. The play.</div>
+        </div>
+      </div>
+
+      <div class="chain-card chain-sol reveal flex flex-col">
+        <div class="flex items-center gap-3">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect x="6" y="9" width="20" height="2.5" rx="1" fill="#9ca3af" opacity="0.6"/><rect x="6" y="15" width="20" height="2.5" rx="1" fill="#9ca3af" opacity="0.6"/><rect x="6" y="21" width="20" height="2.5" rx="1" fill="#9ca3af" opacity="0.6"/></svg>
+          <span class="chain-label text-white/60">Solana</span>
+        </div>
+        <h3 class="text-white/80">The Dumpster</h3>
+        <div class="font-mono text-xs tracking-widest uppercase mb-4 text-white/40">great for throwing out trash</div>
+        <p class="text-white/60 leading-relaxed flex-grow">
+          A perfectly serviceable garbage disposal. Whatever lowcap nonsense we collect on the journey, whatever zero-utility trash we scrape off our boots, Solana is the bin we toss it into. No shade to the chain itself, but let us be honest about the role it plays in this cycle's content diet. We are not launching there. We are not holding there. We are not looking back.
+        </p>
+        <div class="mt-6 pt-6 border-t border-white/10">
+          <div class="font-mono text-[10px] text-white/50 uppercase tracking-widest mb-2">Role</div>
+          <div class="text-white/60 font-semibold">The disposal unit. The exit.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mt-12 reveal text-center">
+      <p class="font-mono text-sm text-white/50 uppercase tracking-[0.25em]">
+        // if you understand this map, you understand the trade //
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
 <section id="about" class="relative py-24 px-4 sm:px-6 lg:px-8">
   <div class="max-w-7xl mx-auto">
     <div class="grid lg:grid-cols-5 gap-12 items-center">
 
-      <!-- LEFT: Image collage -->
       <div class="lg:col-span-2 relative">
         <div class="grid grid-cols-2 gap-4">
           <div class="space-y-4">
@@ -725,13 +723,12 @@
             </div>
             <div class="meme-card aspect-square reveal">
               <img src="16.jpg" alt="" class="w-full h-full object-cover"/>
-              <span class="tag">04 / Burn</span>
+              <span class="tag">04 / Base</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- RIGHT: Text -->
       <div class="lg:col-span-3 space-y-6 reveal">
         <div class="badge">About The Mission</div>
         <h2 class="section-title">
@@ -739,10 +736,10 @@
           <span class="grad-text">the explosion</span>
         </h2>
         <p class="text-lg text-white/80 leading-relaxed">
-          When the <span class="text-astro-pink font-bold">Asteroid</span> token detonated across Ethereum, it left behind something beautiful: a tiny, fluffy, irresistibly cute survivor. <span class="text-astro-cyan font-bold">Baby Asteroid</span> is that survivor — a plush Shiba Inu in a little white astronaut suit, cracked blue heart patch and all, floating through the chain on a mission that's equal parts heartwarming and absolutely unhinged.
+          When the <span class="text-astro-pink font-bold">Asteroid</span> token detonated on Ethereum, it left behind something beautiful: a tiny, fluffy, irresistibly cute survivor. <span class="text-astro-cyan font-bold">Baby Asteroid</span> is that survivor. A plush Shiba Inu in a white astronaut suit, cracked blue heart patch and a tiny mission tag, floating onto Base with one job. Carry the narrative onto a faster chain with better economics and let the bid wall do the rest.
         </p>
         <p class="text-lg text-white/70 leading-relaxed">
-          We're launching directly on <span class="text-astro-yellow font-bold">Printr</span>, Ethereum's premium meme launchpad, and surfing the same cosmic hype that sent its parent token into orbit. No VCs. No private rounds. No suspicious wallets. Just a community, a deflationary engine burning every fifteen minutes, and the world's cutest dog in a spacesuit.
+          We launch on <span class="text-astro-yellow font-bold">Flaunch</span>, Base's premium Uniswap V4 launchpad. No VCs. No private rounds. No suspicious wallets. No pre-mint. Just a 30-minute Fixed Price Fair Launch, a community, and a Progressive Bid Wall that converts every swap into buy-side pressure, forever.
         </p>
 
         <div class="grid sm:grid-cols-3 gap-4 pt-4">
@@ -753,13 +750,13 @@
           </div>
           <div class="neon-border rounded-2xl p-5">
             <div class="font-mono text-[10px] text-white/40 tracking-[0.3em] uppercase mb-2">02</div>
-            <div class="font-bungee text-sm text-astro-pink uppercase tracking-wider mb-2">Deflationary</div>
-            <p class="text-sm text-white/60">Supply shrinks automatically every 15 minutes. Forever.</p>
+            <div class="font-bungee text-sm text-astro-pink uppercase tracking-wider mb-2">Bid-Walled</div>
+            <p class="text-sm text-white/60">Every 0.1 ETH of fees triggers an automated buy just under spot.</p>
           </div>
           <div class="neon-border rounded-2xl p-5">
             <div class="font-mono text-[10px] text-white/40 tracking-[0.3em] uppercase mb-2">03</div>
             <div class="font-bungee text-sm grad-text-warm uppercase tracking-wider mb-2">Narrative</div>
-            <p class="text-sm text-white/60">Riding the #1 hype wave on ETH right now.</p>
+            <p class="text-sm text-white/60">Riding the papai Asteroid wave straight into Base.</p>
           </div>
         </div>
       </div>
@@ -767,7 +764,7 @@
   </div>
 </section>
 
-<!-- =============== MEMES GALLERY =============== -->
+<!-- MEMES -->
 <section id="memes" class="relative py-24 px-4 sm:px-6 lg:px-8">
   <div class="max-w-7xl mx-auto">
 
@@ -779,162 +776,174 @@
         <span class="text-white">moments</span>
       </h2>
       <p class="text-white/60 max-w-2xl mx-auto mt-4 text-lg">
-        Every chart pattern tells a story. Every candle is a feeling. Here's the full emotional journey of a $BABYAST holder, illustrated by our plush cosmonaut himself.
+        Every chart pattern tells a story. Every candle is a feeling. Here is the full emotional journey of a $BABYAST holder, illustrated by our plush cosmonaut himself.
       </p>
     </div>
 
-    <!-- Uniform grid — every card the same aspect ratio, clean composition -->
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-
       <div class="meme-card aspect-square reveal">
         <img src="4.jpg" alt="" class="w-full h-full object-cover"/>
         <span class="tag">Mood 01</span>
         <div class="caption">wen moon ser</div>
       </div>
-
       <div class="meme-card aspect-square reveal">
         <img src="6.jpg" alt="" class="w-full h-full object-cover"/>
         <span class="tag">Mood 02</span>
         <div class="caption">buy the dip pup</div>
       </div>
-
       <div class="meme-card aspect-square reveal">
         <img src="9.jpg" alt="" class="w-full h-full object-cover"/>
         <span class="tag">Mood 03</span>
         <div class="caption">hodl activated</div>
       </div>
-
       <div class="meme-card aspect-square reveal">
         <img src="10.jpg" alt="" class="w-full h-full object-cover"/>
         <span class="tag">Mood 04</span>
         <div class="caption">diamond paws</div>
       </div>
-
       <div class="meme-card aspect-square reveal">
         <img src="12.jpg" alt="" class="w-full h-full object-cover"/>
         <span class="tag">Mood 05</span>
         <div class="caption">touching grass? never</div>
       </div>
-
       <div class="meme-card aspect-square reveal">
         <img src="13.jpg" alt="" class="w-full h-full object-cover"/>
         <span class="tag">Mood 06</span>
         <div class="caption">charting the cosmos</div>
       </div>
-
       <div class="meme-card aspect-square reveal">
         <img src="15.jpg" alt="" class="w-full h-full object-cover"/>
         <span class="tag">Mood 07</span>
         <div class="caption">we're so back</div>
       </div>
-
       <div class="meme-card aspect-square reveal">
         <img src="17.jpg" alt="" class="w-full h-full object-cover"/>
         <span class="tag">Mood 08</span>
         <div class="caption">built different</div>
       </div>
-
     </div>
 
     <div class="text-center mt-12 reveal">
-      <p class="font-mono text-sm text-white/50 uppercase tracking-[0.3em]">// Meme supply is infinite // Token supply is not //</p>
+      <p class="font-mono text-sm text-white/50 uppercase tracking-[0.3em]">// meme supply is infinite // the bid wall is relentless //</p>
     </div>
   </div>
 </section>
 
-<!-- =============== TOKENOMICS =============== -->
+<!-- TOKENOMICS -->
 <section id="tokenomics" class="relative py-24 px-4 sm:px-6 lg:px-8">
   <div class="max-w-7xl mx-auto">
 
     <div class="text-center mb-16 reveal">
-      <div class="badge badge-yellow mx-auto">The Burn Engine</div>
+      <div class="badge badge-yellow mx-auto">The Bid Wall Engine</div>
       <h2 class="section-title mt-6">
         <span class="text-white">tokenomics</span><br/>
-        <span class="grad-text-warm">built to burn</span>
+        <span class="grad-text-warm">that defend themselves</span>
       </h2>
       <p class="text-white/60 max-w-3xl mx-auto mt-4 text-lg">
-        No shady team wallets. No timed unlocks. No marketing tax funding a team in Dubai. Just one weapon: a relentless, transparent, Printr-powered burn machine.
+        No shady team wallets. No marketing taxes funding a vacation fund. No hidden knobs. Just Flaunch's native Progressive Bid Wall doing what it was built to do: turning every swap into sustained buy pressure.
       </p>
     </div>
 
-    <!-- Feature card: 2% Buyback Burn -->
     <div class="reveal mb-12">
-      <div class="relative rounded-3xl overflow-hidden border-2 border-astro-pink/40 bg-gradient-to-br from-astro-deep via-astro-bg to-astro-deep">
-        <div class="absolute -top-20 -right-20 w-96 h-96 bg-astro-pink/20 rounded-full blur-3xl"></div>
+      <div class="relative rounded-3xl overflow-hidden border-2 border-base-blue/50 bg-gradient-to-br from-astro-deep via-astro-bg to-astro-deep">
+        <div class="absolute -top-20 -right-20 w-96 h-96 bg-base-blue/25 rounded-full blur-3xl"></div>
         <div class="absolute -bottom-20 -left-20 w-96 h-96 bg-astro-cyan/20 rounded-full blur-3xl"></div>
 
         <div class="relative grid lg:grid-cols-2 gap-0">
-          <!-- Image side -->
           <div class="relative aspect-square lg:aspect-auto lg:min-h-[500px] overflow-hidden">
             <img src="16.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-90"/>
             <div class="absolute inset-0 bg-gradient-to-r lg:bg-gradient-to-r from-transparent to-astro-bg/90 lg:via-astro-bg/30"></div>
-            <!-- Floating burn counter -->
             <div class="absolute top-6 left-6 neon-border rounded-2xl p-4 backdrop-blur-xl">
-              <div class="font-mono text-[10px] text-astro-pink uppercase tracking-widest">Next Burn In</div>
-              <div class="font-bungee text-3xl grad-text-warm flicker" id="burnTimer">--:--</div>
+              <div class="font-mono text-[10px] uppercase tracking-widest" style="color:#60a5fa">Bid Wall Threshold</div>
+              <div class="font-bungee text-3xl grad-text flicker">0.1 ETH</div>
             </div>
-            <div class="absolute bottom-6 left-6 sticker bg-astro-yellow text-astro-bg flicker">Burning Live</div>
+            <div class="absolute bottom-6 left-6 sticker bg-astro-yellow text-astro-bg flicker">Auto Buying Live</div>
           </div>
 
-          <!-- Content side -->
           <div class="relative p-8 md:p-12 flex flex-col justify-center">
-            <div class="font-mono text-xs text-astro-cyan uppercase tracking-[0.3em] mb-3">// Main Feature</div>
-            <div class="font-bungee text-6xl md:text-7xl grad-text-warm leading-none mb-4">2%</div>
-            <h3 class="font-syne font-extrabold text-3xl md:text-4xl text-white mb-4">Automated Buyback & Burn</h3>
-            <p class="text-white/70 leading-relaxed mb-6">
-              <span class="text-astro-cyan font-bold">Every single trade</span> contributes to our 2% allocation, routed directly into <span class="text-astro-pink font-bold">Printr's official automated Buyback and Burn system</span>. The protocol buys $BABYAST off the open market and sends it to the dead wallet <span class="font-mono text-astro-yellow">every 15 minutes</span>. Constant buying pressure. Constant supply shrinkage. Forever.
+            <div class="font-mono text-xs uppercase tracking-[0.3em] mb-3" style="color:#60a5fa">// Main Feature</div>
+            <div class="font-bungee text-5xl md:text-6xl grad-text leading-none mb-4">Progressive<br/>Bid Wall</div>
+            <h3 class="font-syne font-extrabold text-2xl md:text-3xl text-white mb-4">Automated buy-side price support, native to Flaunch.</h3>
+            <p class="text-white/75 leading-relaxed mb-6">
+              Every single swap on $BABYAST accrues trading fees. As the community share of those fees reaches <span class="font-mono" style="color:#22d3ee">0.1 ETH</span>, Flaunch's Uniswap V4 hook automatically deploys that ETH as a <span class="font-semibold" style="color:#60a5fa">bid just below the current spot price</span>. The more the token trades, the taller the wall gets. When price rises, the wall rises with it. This is not manual. This is not discretionary. This is a smart contract, running forever.
             </p>
 
-            <!-- Transparency block -->
             <div class="rounded-xl bg-astro-bg/60 border border-white/10 p-4 mb-6">
               <div class="font-mono text-[10px] text-white/50 uppercase tracking-widest mb-2">Transparency Note</div>
               <p class="text-sm text-white/70 leading-relaxed">
-                Printr's platform allows up to <span class="text-astro-cyan font-semibold">1.5% during the bonding curve</span> and up to <span class="text-astro-cyan font-semibold">0.8% after graduation</span>. We run the <span class="text-astro-pink font-semibold">maximum allowed at every stage</span>, marketed as a continuous 2% buyback & burn commitment from launch to infinity. No tricks. No hidden knobs.
+                The Progressive Bid Wall is a protocol-level feature of <span class="text-astro-cyan font-semibold">Flaunch</span>, implemented as a <span class="text-astro-cyan font-semibold">Uniswap V4 hook</span>. The exact community-to-creator fee split is configured at launch and is fully visible on-chain. Our commitment is a <span class="font-semibold" style="color:#60a5fa">community-majority split routed directly into the bid wall</span>. No promises of a floor, no price guarantees, just a transparent on-chain mechanism that turns volume into buy pressure.
               </p>
             </div>
 
             <div class="flex flex-wrap gap-3">
-              <span class="badge">Fully On-Chain</span>
-              <span class="badge badge-pink">Non-Custodial</span>
-              <span class="badge badge-yellow">Continuous</span>
+              <span class="badge">Uniswap V4 Hook</span>
+              <span class="badge badge-cyan">Fully On-Chain</span>
+              <span class="badge badge-pink">Continuous</span>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Supporting tokenomics grid -->
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
       <div class="tok-box reveal">
-        <div class="font-mono text-xs text-astro-cyan uppercase tracking-widest mb-3">// 01</div>
+        <div class="font-mono text-xs uppercase tracking-widest mb-3" style="color:#60a5fa">// 01</div>
         <div class="font-mono text-xs text-white/50 uppercase tracking-widest mb-2">Launchpad</div>
-        <div class="font-bungee text-2xl text-white mb-3">Printr</div>
-        <p class="text-sm text-white/60">Ethereum-native launchpad with fair bonding-curve mechanics and auto-liquidity.</p>
+        <div class="font-bungee text-2xl text-white mb-3">Flaunch</div>
+        <p class="text-sm text-white/60">Base-native launchpad powered by Uniswap V4 hooks and Progressive Bid Walls.</p>
       </div>
       <div class="tok-box reveal">
-        <div class="font-mono text-xs text-astro-cyan uppercase tracking-widest mb-3">// 02</div>
+        <div class="font-mono text-xs uppercase tracking-widest mb-3" style="color:#60a5fa">// 02</div>
         <div class="font-mono text-xs text-white/50 uppercase tracking-widest mb-2">Chain</div>
-        <div class="font-bungee text-2xl text-white mb-3">Ethereum</div>
-        <p class="text-sm text-white/60">The original, the settlement layer, the home of every real degen.</p>
+        <div class="font-bungee text-2xl text-white mb-3">Base</div>
+        <p class="text-sm text-white/60">Coinbase's L2. Cheap gas. Deep liquidity. Where the new meme wave lives.</p>
       </div>
       <div class="tok-box reveal">
-        <div class="font-mono text-xs text-astro-cyan uppercase tracking-widest mb-3">// 03</div>
-        <div class="font-mono text-xs text-white/50 uppercase tracking-widest mb-2">Team Allocation</div>
-        <div class="font-bungee text-2xl text-white mb-3">0%</div>
-        <p class="text-sm text-white/60">Fair launch. No pre-mint. No team bag. Pure community energy.</p>
+        <div class="font-mono text-xs uppercase tracking-widest mb-3" style="color:#60a5fa">// 03</div>
+        <div class="font-mono text-xs text-white/50 uppercase tracking-widest mb-2">Fair Launch</div>
+        <div class="font-bungee text-2xl text-white mb-3">30 min</div>
+        <p class="text-sm text-white/60">Fixed price window. No sells during. Max buy 0.25% of supply. Snipers out.</p>
       </div>
       <div class="tok-box reveal">
-        <div class="font-mono text-xs text-astro-cyan uppercase tracking-widest mb-3">// 04</div>
-        <div class="font-mono text-xs text-white/50 uppercase tracking-widest mb-2">Tax</div>
-        <div class="font-bungee text-2xl text-white mb-3">Buy / Sell</div>
-        <p class="text-sm text-white/60">Only the Printr-native 2% allocation. Nothing hidden, nothing extra.</p>
+        <div class="font-mono text-xs uppercase tracking-widest mb-3" style="color:#60a5fa">// 04</div>
+        <div class="font-mono text-xs text-white/50 uppercase tracking-widest mb-2">Team / Presale</div>
+        <div class="font-bungee text-2xl text-white mb-3">0% / 0%</div>
+        <p class="text-sm text-white/60">No team allocation. No presale. No private round. Pure fair launch.</p>
+      </div>
+    </div>
+
+    <div class="mt-12 reveal">
+      <div class="neon-border rounded-3xl p-8 md:p-10">
+        <div class="font-mono text-xs uppercase tracking-[0.3em] mb-4" style="color:#60a5fa">How the bid wall works</div>
+        <div class="grid md:grid-cols-4 gap-6">
+          <div>
+            <div class="font-bungee text-astro-cyan text-2xl mb-2">01</div>
+            <div class="font-syne font-bold text-white mb-1">Trade Happens</div>
+            <p class="text-sm text-white/60">Any swap on $BABYAST accrues ETH fees via the Uniswap V4 pool.</p>
+          </div>
+          <div>
+            <div class="font-bungee text-astro-cyan text-2xl mb-2">02</div>
+            <div class="font-syne font-bold text-white mb-1">Fees Accumulate</div>
+            <p class="text-sm text-white/60">Community-share of fees pools in the Flaunch hook contract.</p>
+          </div>
+          <div>
+            <div class="font-bungee text-astro-cyan text-2xl mb-2">03</div>
+            <div class="font-syne font-bold text-white mb-1">0.1 ETH Threshold</div>
+            <p class="text-sm text-white/60">Once 0.1 ETH is reached, the hook triggers a bid placement.</p>
+          </div>
+          <div>
+            <div class="font-bungee text-astro-cyan text-2xl mb-2">04</div>
+            <div class="font-syne font-bold text-white mb-1">Wall Rises</div>
+            <p class="text-sm text-white/60">A buy is placed just below spot. Walls stack. Floor climbs with price.</p>
+          </div>
+        </div>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- =============== ROADMAP =============== -->
+<!-- ROADMAP -->
 <section id="roadmap" class="relative py-24 px-4 sm:px-6 lg:px-8">
   <div class="max-w-7xl mx-auto">
     <div class="grid lg:grid-cols-3 gap-12 items-start mb-16">
@@ -946,7 +955,7 @@
         </h2>
       </div>
       <p class="text-white/60 text-lg leading-relaxed reveal">
-        We don't do fake quarterly milestones or vague "partnerships with major players." We do the stuff that actually matters to a meme coin community. Here's the honest mission timeline, fueled by snacks and vibes.
+        No fake quarterly milestones. No vague partnership announcements. Just the honest timeline of what we do after the launch button gets pressed on Flaunch.
       </p>
     </div>
 
@@ -954,12 +963,12 @@
       <div class="road-step reveal">
         <div class="road-step-number">01</div>
         <div class="font-mono text-xs text-astro-cyan uppercase tracking-widest my-3">Phase One</div>
-        <h3 class="font-syne font-extrabold text-xl text-white mb-3">Hatch From Egg</h3>
+        <h3 class="font-syne font-extrabold text-xl text-white mb-3">Hatch on Base</h3>
         <ul class="space-y-2 text-sm text-white/70">
-          <li class="flex gap-2"><span class="text-astro-cyan">●</span> Launch on Printr</li>
-          <li class="flex gap-2"><span class="text-astro-cyan">●</span> 2% burn engine activated</li>
-          <li class="flex gap-2"><span class="text-astro-cyan">●</span> Telegram + X opened</li>
-          <li class="flex gap-2"><span class="text-astro-cyan">●</span> First 1,000 holders</li>
+          <li class="flex gap-2"><span class="text-astro-cyan">.</span> Flaunch fair launch on Base</li>
+          <li class="flex gap-2"><span class="text-astro-cyan">.</span> Progressive Bid Wall activated</li>
+          <li class="flex gap-2"><span class="text-astro-cyan">.</span> Telegram and X opened</li>
+          <li class="flex gap-2"><span class="text-astro-cyan">.</span> First 1,000 holders</li>
         </ul>
       </div>
 
@@ -968,22 +977,22 @@
         <div class="font-mono text-xs text-astro-pink uppercase tracking-widest my-3">Phase Two</div>
         <h3 class="font-syne font-extrabold text-xl text-white mb-3">Baby Goes Viral</h3>
         <ul class="space-y-2 text-sm text-white/70">
-          <li class="flex gap-2"><span class="text-astro-pink">●</span> Meme raids across ETH CT</li>
-          <li class="flex gap-2"><span class="text-astro-pink">●</span> Influencer flyby campaign</li>
-          <li class="flex gap-2"><span class="text-astro-pink">●</span> Sticker pack drop</li>
-          <li class="flex gap-2"><span class="text-astro-pink">●</span> Graduate from bonding curve</li>
+          <li class="flex gap-2"><span class="text-astro-pink">.</span> Meme raids across Base CT</li>
+          <li class="flex gap-2"><span class="text-astro-pink">.</span> Influencer flyby campaign</li>
+          <li class="flex gap-2"><span class="text-astro-pink">.</span> Sticker pack and toolkit drop</li>
+          <li class="flex gap-2"><span class="text-astro-pink">.</span> Bid wall compounds across launch week</li>
         </ul>
       </div>
 
       <div class="road-step reveal">
         <div class="road-step-number">03</div>
         <div class="font-mono text-xs text-astro-purple uppercase tracking-widest my-3">Phase Three</div>
-        <h3 class="font-syne font-extrabold text-xl text-white mb-3">Mission: Moon</h3>
+        <h3 class="font-syne font-extrabold text-xl text-white mb-3">Mission Moon</h3>
         <ul class="space-y-2 text-sm text-white/70">
-          <li class="flex gap-2"><span class="text-astro-purple">●</span> First CEX conversation</li>
-          <li class="flex gap-2"><span class="text-astro-purple">●</span> CoinGecko + CMC listing</li>
-          <li class="flex gap-2"><span class="text-astro-purple">●</span> Community art contest</li>
-          <li class="flex gap-2"><span class="text-astro-purple">●</span> 10,000 holder milestone</li>
+          <li class="flex gap-2"><span class="text-astro-purple">.</span> CoinGecko and CMC listing</li>
+          <li class="flex gap-2"><span class="text-astro-purple">.</span> Aerodrome and BaseSwap pools</li>
+          <li class="flex gap-2"><span class="text-astro-purple">.</span> Community art contest</li>
+          <li class="flex gap-2"><span class="text-astro-purple">.</span> 10,000 holder milestone</li>
         </ul>
       </div>
 
@@ -992,22 +1001,21 @@
         <div class="font-mono text-xs text-astro-yellow uppercase tracking-widest my-3">Phase Four</div>
         <h3 class="font-syne font-extrabold text-xl text-white mb-3">Deep Space Mode</h3>
         <ul class="space-y-2 text-sm text-white/70">
-          <li class="flex gap-2"><span class="text-astro-yellow">●</span> Baby Asteroid NFT drop</li>
-          <li class="flex gap-2"><span class="text-astro-yellow">●</span> Real-world plush merch</li>
-          <li class="flex gap-2"><span class="text-astro-yellow">●</span> Cross-chain expansion talk</li>
-          <li class="flex gap-2"><span class="text-astro-yellow">●</span> Top 100 ETH meme coin</li>
+          <li class="flex gap-2"><span class="text-astro-yellow">.</span> Baby Asteroid NFT drop</li>
+          <li class="flex gap-2"><span class="text-astro-yellow">.</span> Real-world plush merch</li>
+          <li class="flex gap-2"><span class="text-astro-yellow">.</span> Flaunch Group integration</li>
+          <li class="flex gap-2"><span class="text-astro-yellow">.</span> Top 50 Base meme coin</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- =============== COMMUNITY / ARMY =============== -->
+<!-- COMMUNITY -->
 <section id="community" class="relative py-24 px-4 sm:px-6 lg:px-8">
   <div class="max-w-7xl mx-auto">
 
     <div class="relative rounded-3xl overflow-hidden border border-white/10 reveal">
-      <!-- Background image -->
       <div class="absolute inset-0">
         <img src="7.jpg" alt="" class="w-full h-full object-cover opacity-20"/>
         <div class="absolute inset-0 bg-gradient-to-br from-astro-bg/90 via-astro-deep/80 to-astro-bg/95"></div>
@@ -1020,13 +1028,12 @@
           <span class="grad-text">army</span>
         </h2>
         <p class="text-white/70 max-w-2xl mx-auto mt-6 text-lg leading-relaxed">
-          The cutest degens in the galaxy. We don't gatekeep, we don't ask for your bags, we just vibe, raid, and watch the supply shrink together. If you've ever hugged a Shiba, you're already one of us.
+          The cutest degens on Base. We do not gatekeep, we do not ask for your bags, we just vibe, raid, and watch the bid wall climb together. If you have ever hugged a Shiba, you are already one of us.
         </p>
 
-        <!-- Community stats -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mt-10">
           <div class="neon-border rounded-2xl p-5">
-            <div class="font-bungee text-3xl grad-text">∞</div>
+            <div class="font-bungee text-3xl grad-text">&#8734;</div>
             <div class="font-mono text-[10px] text-white/60 uppercase tracking-wider mt-1">Energy</div>
           </div>
           <div class="neon-border rounded-2xl p-5">
@@ -1043,14 +1050,12 @@
           </div>
         </div>
 
-        <!-- Buttons -->
         <div id="buy" class="flex flex-wrap justify-center gap-4 mt-12">
-          <a href="#" class="btn-neon">Buy on Printr</a>
-          <a href="https://t.me/babyasteroidx" class="btn-neon btn-pink">Join Telegram</a>
-          <a href="https://x.com/basteroideth" class="btn-neon btn-ghost">Follow on X</a>
+          <a href="#" class="btn-neon">Buy on Flaunch</a>
+          <a href="#" class="btn-neon btn-pink">Join Telegram</a>
+          <a href="#" class="btn-neon btn-ghost">Follow on X</a>
         </div>
 
-        <!-- Floating mini portraits -->
         <div class="grid grid-cols-4 md:grid-cols-8 gap-3 mt-12 max-w-4xl mx-auto">
           <div class="aspect-square rounded-full overflow-hidden border-2 border-astro-cyan/50 shadow-[0_0_20px_rgba(34,211,238,0.3)] hover:scale-110 transition">
             <img src="1.jpg" class="w-full h-full object-cover" alt=""/>
@@ -1083,7 +1088,7 @@
   </div>
 </section>
 
-<!-- =============== HOW TO BUY =============== -->
+<!-- HOW TO BUY -->
 <section class="relative py-24 px-4 sm:px-6 lg:px-8">
   <div class="max-w-7xl mx-auto">
 
@@ -1098,35 +1103,34 @@
     <div class="grid md:grid-cols-3 gap-6">
       <div class="tok-box reveal">
         <div class="flex items-start gap-4 mb-4">
-          <div class="flex-shrink-0 w-14 h-14 rounded-2xl bg-astro-cyan/10 border border-astro-cyan/40 flex items-center justify-center font-bungee text-astro-cyan text-xl">01</div>
+          <div class="flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center font-bungee text-xl" style="background:rgba(0,82,255,0.15);border:1px solid rgba(0,82,255,0.6);color:#60a5fa">01</div>
           <h3 class="font-syne font-extrabold text-xl text-white pt-2">Get A Wallet</h3>
         </div>
-        <p class="text-sm text-white/70 leading-relaxed">Download MetaMask, Rabby, or any Ethereum-compatible wallet. Write your seed phrase on paper. Yes, actual paper.</p>
+        <p class="text-sm text-white/70 leading-relaxed">Download MetaMask, Rabby, or Coinbase Wallet. Add the Base network. Write your seed phrase on actual paper.</p>
       </div>
 
       <div class="tok-box reveal">
         <div class="flex items-start gap-4 mb-4">
           <div class="flex-shrink-0 w-14 h-14 rounded-2xl bg-astro-pink/10 border border-astro-pink/40 flex items-center justify-center font-bungee text-astro-pink text-xl">02</div>
-          <h3 class="font-syne font-extrabold text-xl text-white pt-2">Fund With ETH</h3>
+          <h3 class="font-syne font-extrabold text-xl text-white pt-2">Fund With ETH on Base</h3>
         </div>
-        <p class="text-sm text-white/70 leading-relaxed">Bridge or buy ETH and send it to your wallet. Keep a little extra for gas. Ethereum has opinions about gas.</p>
+        <p class="text-sm text-white/70 leading-relaxed">Bridge ETH to Base via the Coinbase bridge, Relay, or any major CEX with direct Base withdrawals. Gas is pennies.</p>
       </div>
 
       <div class="tok-box reveal">
         <div class="flex items-start gap-4 mb-4">
           <div class="flex-shrink-0 w-14 h-14 rounded-2xl bg-astro-yellow/10 border border-astro-yellow/40 flex items-center justify-center font-bungee text-astro-yellow text-xl">03</div>
-          <h3 class="font-syne font-extrabold text-xl text-white pt-2">Ape on Printr</h3>
+          <h3 class="font-syne font-extrabold text-xl text-white pt-2">Buy on Flaunch</h3>
         </div>
-        <p class="text-sm text-white/70 leading-relaxed">Head to Printr, connect your wallet, find $BABYAST, and join the mission. Watch the burns roll in every 15 minutes.</p>
+        <p class="text-sm text-white/70 leading-relaxed">Head to flaunch.gg, connect your wallet, find $BABYAST, and join the mission. Watch the bid wall climb as volume rolls in.</p>
       </div>
     </div>
 
-    <!-- Contract -->
     <div class="mt-10 reveal">
       <div class="neon-border rounded-2xl p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
-          <div class="font-mono text-xs text-astro-cyan uppercase tracking-widest mb-2">Contract Address</div>
-          <div class="font-mono text-sm md:text-base text-white/90 break-all select-all" id="contractAddr">Coming soon — announced on Printr launch</div>
+          <div class="font-mono text-xs uppercase tracking-widest mb-2" style="color:#60a5fa">Contract Address (Base)</div>
+          <div class="font-mono text-sm md:text-base text-white/90 break-all select-all" id="contractAddr">Coming soon, announced on Flaunch launch</div>
         </div>
         <button onclick="navigator.clipboard && navigator.clipboard.writeText(document.getElementById('contractAddr').innerText); this.innerText='Copied'" class="btn-neon btn-ghost !py-2 !px-4 !text-xs flex-shrink-0">
           Copy
@@ -1137,33 +1141,32 @@
   </div>
 </section>
 
-<!-- =============== FOOTER =============== -->
+<!-- FOOTER -->
 <footer class="relative border-t border-white/10 pt-20 pb-10 px-4 sm:px-6 lg:px-8 mt-12 overflow-hidden">
   <div class="absolute inset-0 -z-10">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-astro-purple/10 rounded-full blur-3xl"></div>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-base-blue/10 rounded-full blur-3xl"></div>
   </div>
 
   <div class="max-w-7xl mx-auto">
     <div class="grid md:grid-cols-4 gap-10 mb-12">
-      <!-- Brand -->
       <div class="md:col-span-2">
         <div class="flex items-center gap-3 mb-4">
-          <img src="logo.jpg" alt="" class="w-14 h-14 rounded-full border-2 border-astro-cyan/60" />
+          <img src="logo.jpg" alt="" class="w-14 h-14 rounded-full border-2 border-base-blue/70" />
           <div>
             <div class="font-bungee text-xl text-white">BABY ASTEROID</div>
-            <div class="font-mono text-xs text-astro-cyan tracking-widest">$BABYAST ∙ ETHEREUM</div>
+            <div class="font-mono text-xs tracking-widest" style="color:#60a5fa">$BABYAST &middot; BASE &middot; FLAUNCH</div>
           </div>
         </div>
         <p class="text-sm text-white/60 leading-relaxed max-w-sm">
-          The ultra-cute baby of the exploding Asteroid token. Launching on Printr with a 2% automated buyback & burn engine running every 15 minutes, forever.
+          The cute baby of the exploding Asteroid token. Launching on Flaunch on Base with a Progressive Bid Wall powered by Uniswap V4. The father is on Ethereum. The son is here. Solana is the trash bin.
         </p>
       </div>
 
-      <!-- Links -->
       <div>
         <h4 class="font-bungee text-sm text-white uppercase mb-4 tracking-wider">Navigate</h4>
         <ul class="space-y-2 font-mono text-xs uppercase tracking-widest">
           <li><a href="#home" class="text-white/60 hover:text-astro-cyan transition">Home</a></li>
+          <li><a href="#thesis" class="text-white/60 hover:text-astro-cyan transition">Thesis</a></li>
           <li><a href="#about" class="text-white/60 hover:text-astro-cyan transition">About</a></li>
           <li><a href="#memes" class="text-white/60 hover:text-astro-cyan transition">Memes</a></li>
           <li><a href="#roadmap" class="text-white/60 hover:text-astro-cyan transition">Roadmap</a></li>
@@ -1171,22 +1174,20 @@
         </ul>
       </div>
 
-      <!-- Socials -->
       <div>
         <h4 class="font-bungee text-sm text-white uppercase mb-4 tracking-wider">Transmit</h4>
         <ul class="space-y-3 font-mono text-xs uppercase tracking-widest">
-          <li><a href="https://x.com/basteroideth" class="text-white/60 hover:text-astro-pink transition block py-1">Twitter / X</a></li>
-          <li><a href="https://t.me/babyasteroidx" class="text-white/60 hover:text-astro-pink transition block py-1">Telegram</a></li>
-          <li><a href="#" class="text-white/60 hover:text-astro-pink transition block py-1">Printr</a></li>
-          <li><a href="#" class="text-white/60 hover:text-astro-pink transition block py-1">Etherscan</a></li>
+          <li><a href="#" class="text-white/60 hover:text-astro-pink transition block py-1">Twitter / X</a></li>
+          <li><a href="#" class="text-white/60 hover:text-astro-pink transition block py-1">Telegram</a></li>
+          <li><a href="#" class="text-white/60 hover:text-astro-pink transition block py-1">Flaunch</a></li>
+          <li><a href="#" class="text-white/60 hover:text-astro-pink transition block py-1">Basescan</a></li>
           <li><a href="#" class="text-white/60 hover:text-astro-pink transition block py-1">Dexscreener</a></li>
         </ul>
       </div>
     </div>
 
-    <!-- Bottom -->
     <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-      <p class="font-mono text-xs text-white/40 uppercase tracking-widest">© 2026 Baby Asteroid — Built by degens, for degens.</p>
+      <p class="font-mono text-xs text-white/40 uppercase tracking-widest">&copy; 2026 Baby Asteroid. Built by degens, for degens.</p>
       <p class="font-mono text-xs text-white/40 uppercase tracking-widest text-center md:text-right">
         Not financial advice. Crypto is risky. Cuteness is not.
       </p>
@@ -1194,17 +1195,12 @@
   </div>
 </footer>
 
-<!-- =============== SCRIPT =============== -->
 <script>
-  // Mobile menu toggle
   const menuBtn = document.getElementById('menuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
-  menuBtn?.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
-  });
+  menuBtn?.addEventListener('click', () => { mobileMenu.classList.toggle('open'); });
   mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
 
-  // Scroll reveal observer
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -1214,24 +1210,6 @@
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  // 15-minute burn countdown (aligns to the next :00, :15, :30, :45)
-  function updateBurnTimer() {
-    const el = document.getElementById('burnTimer');
-    if (!el) return;
-    const now = new Date();
-    const minutes = now.getMinutes();
-    const seconds = now.getSeconds();
-    const nextBurnMin = Math.ceil((minutes + 1) / 15) * 15;
-    const mLeft = (nextBurnMin - minutes - 1);
-    const sLeft = 60 - seconds;
-    const totalS = mLeft * 60 + sLeft;
-    const m = Math.floor(totalS / 60);
-    const s = totalS % 60;
-    el.textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
-  }
-  updateBurnTimer();
-  setInterval(updateBurnTimer, 1000);
 </script>
 
 </body>
